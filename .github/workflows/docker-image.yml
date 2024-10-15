@@ -1,0 +1,48 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: GlueOps/github-actions-build-push-containers@v0.4.1
+     # with:
+        # The Dockerfile filename
+       # dockerfile: # optional, default is Dockerfile
+        # The container registry to push the image to
+        #registry: # default is ghcr.io
+        # The username for authentication to the container registry (defaults to the github.actor)
+        #registry-username: # default is ${{ github.actor }}
+        # Docker image is named after repository
+       # image_name: # default is ${{ github.repository }}
+        # A path to the context in which the build will happen, see https://docs.docker.com/engine/reference/commandline/build/
+       # context: # optional, default is .
+        # Directory to clone the repository into.
+        #target_directory: # optional, default is .
+        # Comma-separate list of tags for built image.  Defaults to GlueOps tags
+       # tags: # optional, default is 
+        # Personal Access Token (PAT) used to authenticate with the GitHub Container Registry.
+        #github_token: # optional, default is ${{ github.token }}
+        # AWS Access Key ID - to be used in conjunction with `aws_secret_access_key`
+       # aws_access_key_id: # optional
+        # AWS Secret Access Key - to be used in conjunction with `aws_access_key_id`
+       # aws_secret_access_key: # optional
+        # AWS IAM Role to assume, when using the GitHub OIDC provider in conjunction with a configured AWS IAM Identity Provider endpoint and instead of access key / secret key pair
+       # aws_role_to_assume: # optional
+        # AWS Default Region
+       # aws_default_region: # optional, default is us-west-2
+        # Version of AWS CLI to use
+       # aws_cli_version: # optional, default is 2.15.30
+        # Docker Hub Username
+       # dockerhub_username: # optional
+        # Docker Hub Personal Access Token
+       # dockerhub_password: # optional
+          
